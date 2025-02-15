@@ -2,7 +2,7 @@
 
 import React from "react";
 import { NavbarRoutes } from "@/components/navbar-routes"
-import { MobileSidebar } from "../mobile-sidebar"
+import { MobileSidebar } from "./mobile-sidebar"
 import { SafeProfile } from "@/types";
 
 interface NavbarProps  {

@@ -1,7 +1,7 @@
 "use client";
 
 import { Layout, Compass, List, BarChart, Users } from "lucide-react";
-import SidebarItem from ".//sidebar-item";
+import SidebarItem from "./sidebar-item";
 import { usePathname } from "next/navigation";
 
 const STUDENTRoutes = [
