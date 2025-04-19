@@ -34,11 +34,11 @@ model Profile {
 }
 
 model Course {
-  id          String     @id @default(uuid()) @map("_id") @db.Uuid
-  userId      String     @db.Text
+  id          String     @id @default(uuid()) //@map("_id") @db.Uuid
+  userId      String     
   title       String     @db.Text
-  description String?
-  imageUrl    String?
+  description String?    @db.Text  
+  imageUrl    String?    @db.Text
   price       Float?
   isPublished Boolean    @default(false)
 
@@ -56,11 +56,11 @@ model Course {
 }
 
 model Attachment {
-  id        String     @id @default(uuid()) @map("_id") @db.Uuid
-  name      String     @db.Text
+  id        String     @id @default(uuid()) //@map("_id") @db.Uuid
+  name      String     
   url       String     @db.Text
 
-  courseId  String     @db.Text
+  courseId  String     
   course    Course     @relation(fields: [courseId], references: [id], onDelete: Cascade)
 
   createdAt DateTime   @default(now())
@@ -70,7 +70,7 @@ model Attachment {
 }
 
 model Category {
-  id        String     @id @default(uuid()) @map("_id") @db.Uuid
+  id        String     @id @default(uuid()) //@map("_id") @db.Uuid
   name      String     @db.Text
   courses   Course[]
 
@@ -79,7 +79,7 @@ model Category {
 }
 
 model Chapter {
-  id          String     @id @default(uuid()) @map("_id") @db.Uuid
+  id          String     @id @default(uuid()) //@map("_id") @db.Uuid
   title       String     @db.Text
   description String?
   videoUrl    String?
@@ -101,7 +101,7 @@ model Chapter {
 }
 
 model MuxData {
-  id          String     @id @default(uuid()) @map("_id") @db.Uuid
+  id          String     @id @default(uuid()) //@map("_id") @db.Uuid
   assetId     String     @db.Text
   playbackId  String?
 
@@ -110,7 +110,7 @@ model MuxData {
 }
 
 model UserProgress {
-  id          String     @id @default(uuid()) @map("_id") @db.Uuid
+  id          String     @id @default(uuid()) //@map("_id") @db.Uuid
   userId      String     @unique
 
   chapterId   String     @db.Uuid
@@ -127,7 +127,7 @@ model UserProgress {
 
 
 model Purchase {
-  id          String     @id @default(uuid()) @map("_id") @db.Uuid
+  id          String     @id @default(uuid()) //@map("_id") @db.Uuid
   userId      String     @unique
 
   courseId    String     @db.Uuid
@@ -141,7 +141,7 @@ model Purchase {
 }
 
 model StripeCustomer {
-  id                String     @id @default(uuid()) @map("_id") @db.Uuid
+  id                String     @id @default(uuid()) //@map("_id") @db.Uuid
   userId            String     @unique
   stripeCustomerId String     @unique
 
@@ -150,7 +150,7 @@ model StripeCustomer {
 }
 
 model Logging {
-  id        String   @id @default(uuid()) @map("_id") @db.Uuid
+  id        String   @id @default(uuid()) //@map("_id") @db.Uuid
   url       String     @db.Text
   method    String     @db.Text
   body      String?
