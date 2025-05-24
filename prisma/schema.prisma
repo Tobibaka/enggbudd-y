@@ -22,7 +22,7 @@ enum MemberRole {
 }
 
 model Profile {
-  id String @id @default(uuid()) @map("_id") @db.Uuid
+  id String @id @default(uuid()) //@map("_id") @db.Uuid
   userId String @unique
   name String
   imageUrl String?  
