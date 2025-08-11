@@ -1,13 +1,7 @@
 "use client";
 
-// Define the Chapter type locally if not exported from @prisma/client
- interface Chapter {
-  id: string;
-  title: string;
-  isPublished: boolean;
-  isFree: boolean;
-  // Add other fields as needed
-}
+
+import { Chapter } from "@/lib/generated/prisma"
 import { useEffect, useState } from "react";
 import {
   DragDropContext,
